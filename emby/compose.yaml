@@ -1,0 +1,26 @@
+
+
+version: "2.1"
+services:
+  emby:
+    image: lscr.io/linuxserver/emby:latest
+    container_name: emby
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=Etc/UTC
+    volumes:
+      - ${EMBY_HOME}:/config
+      - ${PATH_TO_AUDIO}:/data/audio
+      - ${PATH_TO_VIDEO}:/data/video
+#      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+#    devices:
+#      - /dev/dri:/dev/dri #optional
+#      - /dev/vchiq:/dev/vchiq #optional
+#      - /dev/video10:/dev/video10 #optional
+#      - /dev/video11:/dev/video11 #optional
+#      - /dev/video12:/dev/video12 #optional
+    restart: unless-stopped
