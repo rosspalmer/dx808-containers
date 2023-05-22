@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo podman-compose --env-file="../.env" up
+podman-compose --env-file="../.env" --podman-run-args="-u=wg-vpn" up
