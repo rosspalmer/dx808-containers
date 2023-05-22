@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo podman-compose --env .env up
+sudo podman-compose --env-file="../.env" up
